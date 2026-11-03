@@ -3,7 +3,7 @@ extends Timer
 
 @export var enemy_scene: PackedScene
 
-var x_limit: float = 320.0
+@export var x_limit: float = 320.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

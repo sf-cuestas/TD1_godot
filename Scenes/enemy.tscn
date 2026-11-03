@@ -1,20 +1,29 @@
 [gd_scene format=3 uid="uid://bmebsoaa78f2c"]
 
 [ext_resource type="Script" uid="uid://cyvjo5lka522d" path="res://enemy.gd" id="1_1f0kj"]
+[ext_resource type="PackedScene" path="res://Effects/explosion.tscn" id="2_287tu"]
 [ext_resource type="Texture2D" uid="uid://ca513f5s5u4ji" path="res://KennyAssets/SpaceShooterRedux/Enemies/enemyRed1.png" id="2_afpow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_287tu"]
 size = Vector2(64, 64)
 
-[node name="enemy" type="Area2D" unique_id=1427514934]
+[node name="enemy" type="Area2D" unique_id=1427514934 node_paths=PackedStringArray("sprite", "timer")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_1f0kj")
+sprite = NodePath("sprite")
+timer = NodePath("Timer")
+explotion_fx = ExtResource("2_287tu")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1822154863]
+[node name="sprite" type="Sprite2D" parent="." unique_id=1822154863]
 texture = ExtResource("2_afpow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1754168356]
 shape = SubResource("RectangleShape2D_287tu")
 
+[node name="Timer" type="Timer" parent="." unique_id=1895922412]
+wait_time = 0.06
+one_shot = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
