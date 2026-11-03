@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dl4y6ta2gnn86"]
+
+[ext_resource type="Script" uid="uid://poeagvdwh4cb" path="res://Scripts/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://b24cbluye7s3r" path="res://KennyAssets/SpaceShooterRedux/Lasers/laserGreen09.png" id="1_xjght"]
+[ext_resource type="PackedScene" path="res://Effects/muzzle_flash.tscn" id="3_ycag2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oduel"]
+radius = 8.0
+height = 48.0
+
+[node name="Bullet" type="Area2D" unique_id=1455551796]
+script = ExtResource("1_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=574735527]
+texture = ExtResource("1_xjght")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1620108223]
+shape = SubResource("CapsuleShape2D_oduel")
+
+[node name="MuzzleFlash" parent="." unique_id=1413323916 instance=ExtResource("3_ycag2")]
+position = Vector2(0, 16)

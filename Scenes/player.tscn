@@ -1,11 +1,23 @@
 [gd_scene format=3 uid="uid://cimach44tu7v8"]
 
-[ext_resource type="Script" uid="uid://com2rmrdic7jj" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://com2rmrdic7jj" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://5b8abxs5ltg5" path="res://KennyAssets/SpaceShooterRedux/playerShip2_green.png" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://cqfi1e1rmi1ss" path="res://Scenes/weapon.tscn" id="2_6t5aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(111, 73)
 
 [node name="Player" type="Area2D" unique_id=1064849397]
 script = ExtResource("1_cvnsp")
 
+[node name="weapon" parent="." unique_id=1758551933 instance=ExtResource("2_6t5aa")]
+position = Vector2(0, -38)
+time_between_shots = 0.1
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2086537617]
 modulate = Color(0, 0.34901962, 1, 1)
 texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=405162338]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_vgqql")
