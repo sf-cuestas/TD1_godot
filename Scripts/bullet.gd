@@ -19,5 +19,8 @@ func _physics_process(delta: float) -> void:
 	position += velocity * speed  * delta
 	
 	if position.y < -y_limit:
-		queue_free()
+		destroy()
 	pass
+
+func destroy() -> void:
+	queue_free()

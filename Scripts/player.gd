@@ -8,6 +8,7 @@ extends Area2D
 @export var max_rotation: float = 30
 @onready var sprite: Sprite2D = $Sprite2D
 var velocity: Vector2 = Vector2.ZERO
+var life: int = 2
 
 func _ready() -> void:
 	pass # une fois, quand le nœud apparaît
@@ -39,3 +40,9 @@ func read_direction() -> Vector2:
 
 	
 	return direction
+
+func take_damage(amount: int) -> void:
+	life -= amount
+	if life == 0:
+		get_tree().reload_current_scene.call_deferred()
+	pass

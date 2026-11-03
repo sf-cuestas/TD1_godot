@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dtnl7mrf7dbqe" path="res://KennyAssets/SpaceShooterRedux/Backgrounds/purple.png" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cimach44tu7v8" path="res://Scenes/player.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dfmwg5erisofx" path="res://Scenes/enemy_spawner.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=1429384899]
 
@@ -15,3 +16,6 @@ region_rect = Rect2(0, 0, 1500, 2000)
 
 [node name="Player" parent="." unique_id=1064849397 instance=ExtResource("2_bo1nx")]
 position = Vector2(0, 488)
+
+[node name="enemy_spawner" parent="." unique_id=1602411156 instance=ExtResource("3_8gbba")]
+position = Vector2(0, -688)
