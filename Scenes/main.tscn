@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c8ygx72rfapki"]
+
+[ext_resource type="Texture2D" uid="uid://dtnl7mrf7dbqe" path="res://KennyAssets/SpaceShooterRedux/Backgrounds/purple.png" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cimach44tu7v8" path="res://Scenes/player.tscn" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://dk0o7px6irdmd" path="res://Scripts/Player.gd" id="3_8gbba"]
+
+[node name="Main" type="Node2D" unique_id=1429384899]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=127394266]
+scale = Vector2(2.7999997, 5.0400014)
+texture = ExtResource("1_bo1nx")
+centered = false
+
+[node name="Player" parent="." unique_id=1064849397 instance=ExtResource("2_bo1nx")]
+position = Vector2(354, 1116)
+script = ExtResource("3_8gbba")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=601909202]
+anchor_mode = 0
