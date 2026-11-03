@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cimach44tu7v8"]
 
+[ext_resource type="Script" uid="uid://com2rmrdic7jj" path="res://Scenes/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://5b8abxs5ltg5" path="res://KennyAssets/SpaceShooterRedux/playerShip2_green.png" id="1_v0iea"]
 
 [node name="Player" type="Area2D" unique_id=1064849397]
+script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2086537617]
 modulate = Color(0, 0.34901962, 1, 1)
