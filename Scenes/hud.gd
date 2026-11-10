@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var lifeContainer: HBoxContainer
 @export var gameOverContainer: Control
 @export var damageFlash: ColorRect
+@export var gameOverMenu: VBoxContainer
 var damageFlashTimer: float = 0.25 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +41,15 @@ func _on_life_change(life: int) -> void:
 		lifeContainer.get_child(i).visible = i + 1 <= life
 	if life == 0:
 		gameOverContainer.visible = true
+		gameOverMenu.scale = Vector2(0.1, 0.1)
+		gameOverMenu.modulate.a = 0.0
+		var scale_tween: Tween = get_tree().create_tween()
+		scale_tween.tween_property(gameOverMenu,"scale", Vector2.ONE, 0.6)
+		scale_tween.tween_property(gameOverMenu,"modulate:a", 1.0, 0.6)
+		scale_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+		scale_tween.set_parallel(true)
+		scale_tween.set_trans(Tween.TRANS_BACK)
+		scale_tween.play()
 	pass
 
 

@@ -2,6 +2,7 @@ extends Node
 
 @export var globalScore: int = 0
 var hit_stop_timer: SceneTreeTimer = null
+var is_gameover: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,11 +25,13 @@ func add_score(score: int) -> void:
 func player_life_change(life: int) -> void:
 	player_life_changed.emit(life)
 	if life == 0:
+		is_gameover = true
 		trigger_game_over()
 	
 func trigger_game_over() -> void:
-	get_tree().paused = true
-	game_over.emit()
+	Engine.time_scale = 0.1
+	get_tree().create_timer(1.5, true, false, true).timeout.connect(on_timer_game_over)
+	
 	
 func restart() -> void:
 	globalScore = 0
@@ -36,6 +39,8 @@ func restart() -> void:
 	get_tree().reload_current_scene.call_deferred()
 	
 func hitstop(time: float) -> void:
+	if is_gameover:
+		return
 	Engine.time_scale = time
 	hit_stop_timer = get_tree().create_timer(0.1,true, false, true)
 	hit_stop_timer.timeout.connect(hit_end)
@@ -44,3 +49,10 @@ func hitstop(time: float) -> void:
 func hit_end() -> void:
 	Engine.time_scale = 1
 	hit_stop_timer = null
+	
+func on_timer_game_over() -> void:
+	Engine.time_scale = 1
+	is_gameover = false
+	get_tree().paused = true
+	game_over.emit()
+	pass

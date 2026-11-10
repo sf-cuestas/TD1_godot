@@ -15,13 +15,14 @@ font_size = 64
 font_color = Color(1, 0, 0, 1)
 outline_size = 7
 
-[node name="HUD" type="CanvasLayer" unique_id=1917391472 node_paths=PackedStringArray("scoreLabel", "lifeContainer", "gameOverContainer", "damageFlash")]
+[node name="HUD" type="CanvasLayer" unique_id=1917391472 node_paths=PackedStringArray("scoreLabel", "lifeContainer", "gameOverContainer", "damageFlash", "gameOverMenu")]
 process_mode = 3
 script = ExtResource("1_bjfho")
 scoreLabel = NodePath("Label")
 lifeContainer = NodePath("HBoxContainer")
 gameOverContainer = NodePath("GameOver")
 damageFlash = NodePath("DamageFlash")
+gameOverMenu = NodePath("GameOver/VBoxContainer")
 
 [node name="DamageFlash" type="ColorRect" parent="." unique_id=1337593982]
 anchors_preset = 15
