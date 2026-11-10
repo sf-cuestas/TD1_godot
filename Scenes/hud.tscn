@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bb830e54nxi8f"]
+
+[ext_resource type="Script" uid="uid://cn7fnnm1wlcis" path="res://Scenes/hud.gd" id="1_bjfho"]
+[ext_resource type="FontFile" uid="uid://kebcj1dqllk2" path="res://KennyAssets/SpaceShooterRedux/Bonus/kenvector_future.ttf" id="1_fccik"]
+[ext_resource type="Texture2D" uid="uid://ihvf2ykylsg1" path="res://KennyAssets/SpaceShooterRedux/UI/playerLife2_green.png" id="2_bjfho"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjfho"]
+font = ExtResource("1_fccik")
+font_size = 32
+outline_color = Color(0, 0.8343982, 0, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=1917391472 node_paths=PackedStringArray("scoreLabel")]
+script = ExtResource("1_bjfho")
+scoreLabel = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=870550541]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Score"
+label_settings = SubResource("LabelSettings_bjfho")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=990150486]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1924149791]
+layout_mode = 2
+texture = ExtResource("2_bjfho")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=2022975859]
+layout_mode = 2
+texture = ExtResource("2_bjfho")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=242494502]
+layout_mode = 2
+texture = ExtResource("2_bjfho")
+
+[node name="Panel" type="Panel" parent="." unique_id=2103418588]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=120923611]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="playAgainButton" type="Button" parent="Panel/HBoxContainer" unique_id=561222155]
+layout_mode = 2
+text = "Play again"
+
+[node name="exitButton" type="Button" parent="Panel/HBoxContainer" unique_id=2036723771]
+layout_mode = 2
+text = "Exit"

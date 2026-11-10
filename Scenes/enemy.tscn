@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmebsoaa78f2c"]
 
-[ext_resource type="Script" uid="uid://cyvjo5lka522d" path="res://enemy.gd" id="1_1f0kj"]
+[ext_resource type="Script" uid="uid://cyvjo5lka522d" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="PackedScene" path="res://Effects/explosion.tscn" id="2_287tu"]
 [ext_resource type="Texture2D" uid="uid://ca513f5s5u4ji" path="res://KennyAssets/SpaceShooterRedux/Enemies/enemyRed1.png" id="2_afpow"]
 

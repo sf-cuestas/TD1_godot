@@ -11,6 +11,8 @@ extends Area2D
 @export var knockback_force: float = 400
 @export var knockback_recovery: float = 2000
 
+@export var score_point: int = 1
+
 var velocity: Vector2 = Vector2.DOWN
 var life: int = 2
 
@@ -39,6 +41,7 @@ func take_damage(amount: int) -> void:
 	if life == 0:
 		var explosion: Node2D = explotion_fx.instantiate()
 		explosion.global_position = global_position
+		GameManager.add_score(score_point)
 		get_tree().current_scene.add_child(explosion)
 		queue_free()
 

@@ -43,6 +43,5 @@ func read_direction() -> Vector2:
 
 func take_damage(amount: int) -> void:
 	life -= amount
-	if life == 0:
-		get_tree().reload_current_scene.call_deferred()
+	GameManager.player_life_change(life)
 	pass
