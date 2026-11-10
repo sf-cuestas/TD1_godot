@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://c66j7asbi0kbw" path="res://Scripts/weapon.gd" id="1_er6cq"]
 [ext_resource type="PackedScene" uid="uid://dl4y6ta2gnn86" path="res://Scenes/bullet.tscn" id="2_qv81b"]
 [ext_resource type="AudioStream" path="res://Effects/Sounds/sfx_laser.tres" id="3_e1ly8"]
-[ext_resource type="PackedScene" path="res://Effects/muzzle_flash.tscn" id="3_l036s"]
 
 [node name="weapon" type="Node2D" unique_id=1758551933 node_paths=PackedStringArray("sound")]
 script = ExtResource("1_er6cq")
 bullet_scene = ExtResource("2_qv81b")
-flash_scene = ExtResource("3_l036s")
 sound = NodePath("AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=772575269]
 stream = ExtResource("3_e1ly8")
+volume_db = -6.163

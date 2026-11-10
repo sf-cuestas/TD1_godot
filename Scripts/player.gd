@@ -7,10 +7,16 @@ extends Area2D
 @export var acceleration: float = 4000
 @export var max_rotation: float = 30
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var invisibility_timer: Timer = $InvisibilityTimer
+var is_invisibility: bool = false
+@export var hurt_sound: AudioStreamPlayer2D
+@export var explotion_fx: PackedScene
 var velocity: Vector2 = Vector2.ZERO
 var life: int = 3
 
+
 func _ready() -> void:
+	
 	pass # une fois, quand le nœud apparaît
 	
 func _process(delta: float) -> void:
@@ -42,6 +48,29 @@ func read_direction() -> Vector2:
 	return direction
 
 func take_damage(amount: int) -> void:
+	if is_invisibility:
+		return
+	is_invisibility = true
+	invisibility_timer.start()
+	var blink_tween: Tween = get_tree().create_tween()
+	blink_tween.tween_property(sprite,"modulate:a", 0.1, 0.1)
+	blink_tween.tween_property(sprite,"modulate:a", 1, 0.1)
+	blink_tween.set_loops(5)
+	blink_tween.play()
 	life -= amount
+	hurt_sound.play()
+	GameManager.hitstop(0.1)
+	if life <= 0:
+		var explosion: Node2D = explotion_fx.instantiate()
+		explosion.global_position = global_position
+		explosion.scale = Vector2.ONE*2
+		get_tree().current_scene.add_child(explosion)
+		GameManager.trigger_game_over()
+		
 	GameManager.player_life_change(life)
 	pass
+
+
+func _on_invisibility_timer_timeout() -> void:
+	is_invisibility = false
+	pass # Replace with function body.

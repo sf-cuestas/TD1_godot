@@ -4,6 +4,7 @@ extends Camera2D
 var trauma: float = 0.0
 var decay: float = 1
 var max_offset: float = 40
+var max_trauma: float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,8 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if trauma >= 0:
-		trauma -= decay*delta
+	add_trauma(-decay*delta)
 	
 	offset =Vector2(
 		randf_range(-max_offset,max_offset), 
@@ -23,13 +23,13 @@ func _process(delta: float) -> void:
 	offset.y = clamp(offset.y,-max_offset,max_offset)
 	pass
 func add_trauma(newTrauma: float) -> void:
-	if trauma <= 1:
-		trauma += newTrauma
+	trauma += newTrauma
+	trauma = clamp(trauma, 0, max_trauma)
 	pass
 	
 func _on_life_change(life: int) -> void:
 	if life == 0:
-		trauma = 1
+		add_trauma(1)
 	else:
-		trauma += 0.6
+		add_trauma(0.6)
 	pass

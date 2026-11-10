@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cyvjo5lka522d" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="PackedScene" path="res://Effects/explosion.tscn" id="2_287tu"]
 [ext_resource type="Texture2D" uid="uid://ca513f5s5u4ji" path="res://KennyAssets/SpaceShooterRedux/Enemies/enemyRed1.png" id="2_afpow"]
+[ext_resource type="PackedScene" path="res://Effects/debris.tscn" id="3_287tu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_287tu"]
 size = Vector2(64, 64)
@@ -14,6 +15,7 @@ script = ExtResource("1_1f0kj")
 sprite = NodePath("sprite")
 timer = NodePath("Timer")
 explotion_fx = ExtResource("2_287tu")
+debris_scene = ExtResource("3_287tu")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1822154863]
 texture = ExtResource("2_afpow")
