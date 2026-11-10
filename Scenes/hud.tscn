@@ -9,9 +9,28 @@ font = ExtResource("1_fccik")
 font_size = 32
 outline_color = Color(0, 0.8343982, 0, 1)
 
-[node name="HUD" type="CanvasLayer" unique_id=1917391472 node_paths=PackedStringArray("scoreLabel")]
+[sub_resource type="LabelSettings" id="LabelSettings_6fbih"]
+font = ExtResource("1_fccik")
+font_size = 64
+font_color = Color(1, 0, 0, 1)
+outline_size = 7
+
+[node name="HUD" type="CanvasLayer" unique_id=1917391472 node_paths=PackedStringArray("scoreLabel", "lifeContainer", "gameOverContainer", "damageFlash")]
+process_mode = 3
 script = ExtResource("1_bjfho")
 scoreLabel = NodePath("Label")
+lifeContainer = NodePath("HBoxContainer")
+gameOverContainer = NodePath("GameOver")
+damageFlash = NodePath("DamageFlash")
+
+[node name="DamageFlash" type="ColorRect" parent="." unique_id=1337593982]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="." unique_id=870550541]
 anchors_preset = 1
@@ -39,28 +58,51 @@ texture = ExtResource("2_bjfho")
 layout_mode = 2
 texture = ExtResource("2_bjfho")
 
-[node name="Panel" type="Panel" parent="." unique_id=2103418588]
+[node name="GameOver" type="Control" parent="." unique_id=1844261159]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=1374966378]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16745102, 0.16745102, 0.16745102, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver" unique_id=164270555]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -43.5
+offset_top = -33.0
+offset_right = 43.5
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=120923611]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="playAgainButton" type="Button" parent="Panel/HBoxContainer" unique_id=561222155]
+[node name="Label" type="Label" parent="GameOver/VBoxContainer" unique_id=1563241553]
 layout_mode = 2
+text = "Game over"
+label_settings = SubResource("LabelSettings_6fbih")
+
+[node name="playAgainButton" type="Button" parent="GameOver/VBoxContainer" unique_id=561222155]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fccik")
 text = "Play again"
 
-[node name="exitButton" type="Button" parent="Panel/HBoxContainer" unique_id=2036723771]
+[node name="exitButton" type="Button" parent="GameOver/VBoxContainer" unique_id=2036723771]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fccik")
 text = "Exit"
+
+[connection signal="pressed" from="GameOver/VBoxContainer/playAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
