@@ -510,11 +510,11 @@ Piochez librement. Plus vous montez, plus ça rapporte. Remplissez la colonne **
 | 🥉 | Flash blanc à l'impact | 1.4 |x|
 | 🥉 | Son de tir avec pitch aléatoire | 1.3 | x |
 | 🥉 | Explosion et étincelles d'impact | 1.4 | x |
-| 🥉 | Score qui punch, flash rouge au dégât | 1.5 |  |
-| 🥈 | Screen shake par trauma | 2.1 |  |
-| 🥈 | Hitstop | 2.1 |  |
-| 🥈 | Débris (permanence) | 2.2 |  |
-| 🥈 | Invincibilité qui clignote | 2.2 |  |
+| 🥉 | Score qui punch, flash rouge au dégât | 1.5 | x |
+| 🥈 | Screen shake par trauma | 2.1 | x |
+| 🥈 | Hitstop | 2.1 | x |
+| 🥈 | Débris (permanence) | 2.2 | x |
+| 🥈 | Invincibilité qui clignote | 2.2 | x |
 | 🥈 | Pop d'apparition, squash & stretch | 2.3 |  |
 | 🥇 | Ralenti de game over, panneau qui rebondit | 2.3 |  |
 | 🥇 | Recul du vaisseau à chaque tir (le sprite recule puis revient) | Libre |  |
@@ -530,6 +530,12 @@ Piochez librement. Plus vous montez, plus ça rapporte. Remplissez la colonne **
 
 # 3. 📋 Votre rendu (à compléter dans ce README)
 
-- **Nom / Prénom** : …
+- **Nom / Prénom** : Cuestas Samy
 - **Vidéo avant / après** : déposez vos deux vidéos ou GIF dans `Rendu/` et affichez-les ici.
+avant
+
+https://github.com/user-attachments/assets/ee714a2c-40eb-43f9-9edb-160bee2b6287
+
+
+- 
 - **Ma carte de juice** : dans la colonne **Fait** de la [carte de juice](#24-carte-de-juice), mettez ✅ si vous l'avez fait, ❌ sinon (copiez-collez l'emoji). Pour chaque ✅, indiquez ici où (script, fonction).
