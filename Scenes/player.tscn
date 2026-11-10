@@ -15,6 +15,14 @@ script = ExtResource("1_cvnsp")
 position = Vector2(0, -38)
 time_between_shots = 0.1
 
+[node name="weapon2" parent="." unique_id=2052440471 instance=ExtResource("2_6t5aa")]
+position = Vector2(-40, 0)
+time_between_shots = 0.1
+
+[node name="weapon2" parent="weapon2" unique_id=401037125 instance=ExtResource("2_6t5aa")]
+position = Vector2(80, 0)
+time_between_shots = 0.1
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2086537617]
 modulate = Color(0, 0.34901962, 1, 1)
 texture = ExtResource("1_v0iea")
