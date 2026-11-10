@@ -42,6 +42,9 @@ func take_damage(amount: int) -> void:
 		var explosion: Node2D = explotion_fx.instantiate()
 		explosion.global_position = global_position
 		GameManager.add_score(score_point)
+		var camera: Camera_shake = get_viewport().get_camera_2d() as Camera_shake
+		if camera:
+			camera.add_trauma(0.25)
 		get_tree().current_scene.add_child(explosion)
 		queue_free()
 
